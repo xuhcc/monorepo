@@ -19,7 +19,7 @@ The Cl(ear)r.fund smart contracts consist of a factory contract, that deploys a 
 2. **Witness:** This address is responsible for choosing a valid deployment of the [MACI](https://github.com/barryWhiteHat/maci) contract and setting it in the funding round factory. The witness can also quit at any time, which sets the witness address to `null` and requires the owner to set a new witness before starting paying out the previous funding round.
 3. **Coordinator:** This address is responsible for running the zk-Snark computation on contributions to produce the relative percentages of matching funds that each recipient should receive. The coordinator can quit at any time, which invalidates the current round forcing the owner to start a new round and users to submit new messages for their contributions. Without some advancement in oblivious computation, this Coordinator is necessarily a trusted party in this system (this is discussed more in the Limitations section).
 
-The Cl(ea)r.fund application uses Vue.js for the frontend and Ethereum and TheGraph as a backend. Rich profile information for recipients is pulled from 3Box. The application is currently hosted on GitHub pages, but can easily be hosted on IPFS or run locally.
+The Cl(ea)r.fund application uses [Vue.js](https://vuejs.org/) for the frontend and [Ethereum](https://ethereum.org/) and [TheGraph](https://thegraph.com) as a backend. Rich profile information for recipients is pulled from [3Box](https://3box.io). The application is currently hosted on GitHub pages, but can easily be hosted on [IPFS](https://www.ipfs.com/) or run locally.
 
 ### Limitations
 There are various limitations in our current design, we discuss some of them here.
