@@ -15,6 +15,9 @@ import 'maci-contracts/sol/initialVoiceCreditProxy/InitialVoiceCreditProxy.sol';
 import './verifiedUserRegistry/IVerifiedUserRegistry.sol';
 import './recipientRegistry/IRecipientRegistry.sol';
 
+import "hardhat/console.sol";
+
+
 contract FundingRound is Ownable, MACISharedObjs, SignUpGatekeeper, InitialVoiceCreditProxy {
   using SafeERC20 for ERC20;
 
@@ -143,6 +146,7 @@ contract FundingRound is Ownable, MACISharedObjs, SignUpGatekeeper, InitialVoice
     address user = abi.decode(_data, (address));
     bool verified = verifiedUserRegistry.isVerifiedUser(user);
     require(verified, 'FundingRound: User has not been verified');
+    console.log('hello');
     require(contributors[user].voiceCredits > 0, 'FundingRound: User has not contributed');
     require(!contributors[user].isRegistered, 'FundingRound: User already registered');
     contributors[user].isRegistered = true;
